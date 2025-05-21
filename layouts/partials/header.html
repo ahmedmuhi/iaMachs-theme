@@ -1,0 +1,62 @@
+<!-- layouts/partials/header.html -->
+<header class="py-4 md:py-6 border-b border-gray-700">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="{{ .Site.BaseURL }}" class="block mr-6">
+      <img src="{{ "img/logo_diagrid.svg" | relURL }}" alt="{{ .Site.Title }} logo"
+           class="h-8 md:h-10 w-auto" />
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}"
+           class="nav-link-hover transition-colors nav-dropdown-item
+                  {{ if .IsMenuCurrent "main" . }}text-white font-semibold{{ else }}text-gray-300{{ end }}">
+          {{ .Name }}
+          {{/* Only show chevron on dropdown-style items */}}
+          {{ if in (slice "products" "developers" "resources" "about") .Identifier }}
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          {{ end }}
+        </a>
+      {{ end }}
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile slide-down -->
+  <div id="mobile-menu" class="hidden md:hidden mt-3 px-4 space-y-2">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}"
+         class="block px-3 py-2 rounded-md text-base font-medium
+                {{ if .IsMenuCurrent "main" . }}
+                    text-white bg-gray-700
+                {{ else }}
+                    text-gray-300 hover:bg-gray-700 hover:text-white
+                {{ end }}
+                nav-dropdown-item">
+        {{ .Name }}
+        {{ if in (slice "products" "developers" "resources" "about") .Identifier }}
+          <svg class="w-4 h-4 text-gray-400 inline-block ml-1" fill="none" stroke="currentColor"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        {{ end }}
+      </a>
+    {{ end }}
+  </div>
+</header>
+<!-- End of header.html -->

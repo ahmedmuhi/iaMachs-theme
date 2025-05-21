@@ -1,0 +1,99 @@
+###############################################################################
+#  Basic site settings
+###############################################################################
+baseURL = "https://www.iamachs.com/" # Your site's production URL
+title = "iaMachs"                    # Main title for your website
+languageCode = "en-us"               # Language code for the site
+theme = "iaMachs-theme"              # Specifies the theme(s) to use
+paginate = 10                        # Default items per page for lists
+enableRobotsTXT = true               # Generates a robots.txt file
+
+###############################################################################
+#  Theme Parameters
+#  Custom variables that your theme can access for configuration.
+###############################################################################
+[params]
+  # Example parameters (uncomment and modify as needed by your theme):
+  # description = "The official website for iaMachs."
+  # author = "Ahmed Muhi"
+  # githubUser = "ahmedmuhi" # If your theme uses it for links, etc.
+
+###############################################################################
+#  Main navigation menu
+#  Define the primary navigation links for your site.
+#  'weight' determines the order (lower numbers appear first).
+###############################################################################
+[menu]
+
+  [[menu.main]]
+    identifier = "products"
+    name       = "products"
+    url        = "/products/" # Ensure these paths match your content sections
+    weight     = 10
+
+  [[menu.main]]
+    identifier = "developers"
+    name       = "developers"
+    url        = "/developers/"
+    weight     = 20
+
+  [[menu.main]]
+    identifier = "blog"
+    name       = "blog"
+    url        = "/blog/"
+    weight     = 30
+
+  [[menu.main]]
+    identifier = "resources"
+    name       = "resources"
+    url        = "/resources/"
+    weight     = 40
+
+  [[menu.main]]
+    identifier = "pricing"
+    name       = "pricing"
+    url        = "/pricing/"
+    weight     = 50
+
+  [[menu.main]]
+    identifier = "about"
+    name       = "about"
+    url        = "/about/"
+    weight     = 60
+
+###############################################################################
+#  Output formats (Optional - Hugo's defaults are often sufficient)
+###############################################################################
+# [outputs]
+#   home = ["HTML", "RSS"]
+#   page = ["HTML"]
+#   section = ["HTML", "RSS"]
+#   taxonomy = ["HTML", "RSS"]
+#   term = ["HTML", "RSS"]
+
+###############################################################################
+#  Taxonomies (Optional - For content organization like tags, categories)
+###############################################################################
+# [taxonomies]
+#   tag = "tags"
+#   category = "categories"
+
+###############################################################################
+#  Privacy settings (Optional - Configure for embedded services)
+###############################################################################
+# [privacy]
+#   [privacy.twitter]
+#     enableDNT = true
+#   [privacy.youtube]
+#     privacyEnhanced = true
+
+###############################################################################
+#  Markup settings (Optional - For Markdown rendering, syntax highlighting)
+###############################################################################
+# [markup]
+#   [markup.goldmark.renderer]
+#     unsafe = false # Set to true only if you need to allow raw HTML in Markdown
+#   [markup.highlight]
+#     # For code syntax highlighting options, see Hugo documentation.
+#     # style = "monokai" 
+#     # noClasses = false

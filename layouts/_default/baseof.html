@@ -1,0 +1,60 @@
+<!-- layouts/_default/baseof.html -->
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>
+    {{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+  </title>
+
+  <!-- Tailwind (dev-only) and Google font -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Inline tweaks lifted from your original <style> -->
+  <style>
+    body { font-family: 'Outfit', sans-serif; background-color:#111827; color:#E5E7EB; }
+    .nav-link-hover:hover { color:#6EE7B7; }
+    .filter-btn { background-color:#374151; color:#E5E7EB; }
+    .filter-btn.active, .filter-btn:hover { background-color:#34D399; color:#111827; }
+    .card-bg-image-wrapper { background-color:#1F2937; }
+    .nav-dropdown-item { display:flex; align-items:center; gap:0.25rem; }
+    .tag-green { background-color:#34D399; color:#111827; }
+    .card-image-container-adaptive { overflow:hidden; }
+  </style>
+
+  {{ hugo.Generator }} <!-- keeps the default Hugo generator meta tag -->
+</head>
+
+<body class="font-[Outfit]">
+  {{ partial "header.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}   <!-- child templates inject page-specific HTML -->
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <!-- Shared scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Filter button active state
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn =>
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      })
+    );
+  </script>
+</body>
+</html>
