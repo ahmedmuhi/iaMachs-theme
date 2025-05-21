@@ -1,0 +1,13 @@
+name = "iaMachs Theme"
+license = "MIT"
+licenselink = "https://github.com/ahmedmuhi/iaMachs-theme/blob/main/LICENSE.md"
+
+description = "A theme based on the Diagrid blog and resources page."
+homepage = "https://www.iamachs.com/"      # ← your website
+tags      = ["blog", "responsive", "dark"]
+features  = ["responsive", "dark mode"]
+min_version = "0.100.0"
+
+[author]
+  name     = "Ahmed Muhi"
+  homepage = "https://github.com/ahmedmuhi"
