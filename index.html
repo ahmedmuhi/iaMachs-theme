@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrid Blog & Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #111827; /* Dark gray background */
+            color: #E5E7EB; /* Light gray text */
+        }
+        .nav-link-hover:hover {
+            color: #6EE7B7; /* Light green (emerald-300) for hover */
+        }
+        /* .btn-primary, .btn-secondary, .filter-btn styles remain the same */
+        .filter-btn {
+            background-color: #374151; 
+            color: #E5E7EB;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #34D399; 
+            color: #111827; 
+        }
+        .card-bg-image-wrapper { /* New class for the image's distinct background */
+            background-color: #1F2937; /* Slightly lighter dark for image background */
+        }
+        .nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem; 
+        }
+        .tag-green {
+            background-color: #34D399; 
+            color: #111827; 
+        }
+        .card-image-container-adaptive { 
+            overflow: hidden;
+            /* Background color will come from card-bg-image-wrapper */
+        }
+        /* Removed .card-text-content as padding will be applied directly */
+    </style>
+</head>
+<body>
+    <header class="py-4 md:py-6 border-b border-gray-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="block mr-6"> 
+                <img src="https://cdn.prod.website-files.com/66965adecd57031ed9ad181e/67d353c6505bfac7c9866792_logo_diagrid.svg" alt="Diagrid Logo" class="h-8 md:h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                <a href="#" class="text-gray-300 nav-link-hover transition-colors nav-dropdown-item">
+                    products <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+                <a href="#" class="text-gray-300 nav-link-hover transition-colors nav-dropdown-item">
+                    developers <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+                <a href="#" class="text-white font-semibold">blog</a>
+                <a href="#" class="text-gray-300 nav-link-hover transition-colors nav-dropdown-item">
+                    resources <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+                <a href="#" class="text-gray-300 nav-link-hover transition-colors">pricing</a>
+                <a href="#" class="text-gray-300 nav-link-hover transition-colors nav-dropdown-item">
+                    about <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-3 px-4 space-y-2">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white nav-dropdown-item">products <svg class="w-4 h-4 text-gray-400 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white nav-dropdown-item">developers <svg class="w-4 h-4 text-gray-400 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700">blog</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white nav-dropdown-item">resources <svg class="w-4 h-4 text-gray-400 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">pricing</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white nav-dropdown-item">about <svg class="w-4 h-4 text-gray-400 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+        </div>
+    </header>
+
+    <section class="py-6 md:py-10">
+        <div class="container mx-auto px-4 text-left"> 
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
+                Diagrid <span class="text-emerald-400">blog</span> <span class="text-white">&</span> <span class="text-emerald-400">resources</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-400 max-w-2xl mb-4">
+                Access a variety of resources, guides, and tools to empower your journey.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-4 md:py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-4 md:mb-0">
+                    <button class="filter-btn active px-4 py-1.5 rounded-md text-sm font-medium transition-colors">blog</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-md text-sm font-medium transition-colors">videos</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-md text-sm font-medium transition-colors">case studies</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-md text-sm font-medium transition-colors">events</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-md text-sm font-medium transition-colors">webinars</button>
+                </div>
+                <div class="w-full md:w-auto flex items-center space-x-2">
+                     <a href="#" class="text-sm text-gray-400 hover:text-gray-200 whitespace-nowrap mr-2">x clear filters</a>
+                    <div class="relative w-full md:w-64 lg:w-80">
+                        <input type="search" placeholder="Search" class="w-full pl-10 pr-4 py-1.5 rounded-md bg-white text-gray-900 border border-gray-300 focus:ring-emerald-400 focus:border-emerald-400 transition-colors placeholder-gray-500">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-8 md:gap-y-10">
+                <div class="flex flex-col"> 
+                    <a href="#" class="block"> <div class="card-bg-image-wrapper rounded-lg shadow-lg overflow-hidden"> 
+                            <div class="card-image-container-adaptive"> 
+                                <img src="https://cdn.prod.website-files.com/66965adecd57031ed9ad184a/682c0fabe61644769dd1148a_tuning-dapr-scheduler-for-production-min-p-1600.jpg" 
+                                     alt="Tuning Dapr Scheduler for Production" 
+                                     class="w-full object-contain" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1F2937/E5E7EB?text=Image+Not+Found';">
+                            </div>
+                        </div>
+                        <div class="pt-4"> 
+                            <span class="inline-block tag-green text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Blog</span>
+                            <p class="text-sm text-gray-400 mb-2">Bilgin Ibryam | May 19, 2025</p>
+                            <h3 class="text-xl font-semibold text-white">Tuning Dapr Scheduler for Production</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex flex-col"> 
+                    <a href="#" class="block"> <div class="card-bg-image-wrapper rounded-lg shadow-lg overflow-hidden">
+                            <div class="card-image-container-adaptive"> 
+                                <img src="https://cdn.prod.website-files.com/66965adecd57031ed9ad184a/682c0fabe61644769dd1148a_tuning-dapr-scheduler-for-production-min-p-1600.jpg" 
+                                     alt="Tuning Dapr Scheduler for Production" 
+                                     class="w-full object-contain" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1F2937/E5E7EB?text=Image+Not+Found';">
+                            </div>
+                        </div>
+                         <div class="pt-4"> 
+                            <span class="inline-block tag-green text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Blog</span>
+                            <p class="text-sm text-gray-400 mb-2">Bilgin Ibryam | May 19, 2025</p>
+                            <h3 class="text-xl font-semibold text-white">Tuning Dapr Scheduler for Production</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex flex-col"> 
+                    <a href="#" class="block"> <div class="card-bg-image-wrapper rounded-lg shadow-lg overflow-hidden">
+                            <div class="card-image-container-adaptive"> 
+                                <img src="https://cdn.prod.website-files.com/66965adecd57031ed9ad184a/682c0fabe61644769dd1148a_tuning-dapr-scheduler-for-production-min-p-1600.jpg" 
+                                     alt="Tuning Dapr Scheduler for Production" 
+                                     class="w-full object-contain" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1F2937/E5E7EB?text=Image+Not+Found';">
+                            </div>
+                        </div>
+                         <div class="pt-4"> 
+                            <span class="inline-block tag-green text-xs font-semibold px-2.5 py-1 rounded-full mb-3">Blog</span>
+                            <p class="text-sm text-gray-400 mb-2">Bilgin Ibryam | May 19, 2025</p>
+                            <h3 class="text-xl font-semibold text-white">Tuning Dapr Scheduler for Production</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 mt-16 border-t border-gray-700">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <p>&copy; 2025 Diagrid. All rights reserved. (Replicated Design)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter button active state (simple example)
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
